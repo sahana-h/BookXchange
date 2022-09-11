@@ -24,7 +24,7 @@ public class Application {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/book_xchange",
 					"root",
-					"sahanaduckjaadi02");
+					"Sahana123");
 
 			System.out.println("goto http://localhost:8080/ ");
 		} catch (Exception e) {

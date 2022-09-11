@@ -46,7 +46,7 @@
         },
         {
             "type": "java",
-            "name": "Launch Application(1)",
+            "name": "Website",
             "request": "launch",
             "mainClass": "com.example.springboot.Application",
             "projectName": "spring-boot-initial"

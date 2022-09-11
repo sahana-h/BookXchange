@@ -26,7 +26,7 @@ public class Application {
 					"root",
 					"sahanaduckjaadi02");
 
-			System.out.println("!!!!!!!!!!! MYSQL DRIVER LOADED !!!!!!!!!!!!!!");
+			System.out.println("goto http://localhost:8080/ ");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

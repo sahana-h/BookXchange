@@ -4,12 +4,22 @@ public class UserInfo {
     private final String emailID;
     private final long zipcode;
     private final long userid;
+    private final boolean newUser;
 
     public UserInfo(String emailID, long zipcode, long userid) {
         this.emailID = emailID;
         this.zipcode = zipcode;
         this.userid = userid;
+        this.newUser = false;
     }
+
+    public UserInfo(String emailID, long zipcode, long userid, boolean newUser) {
+        this.emailID = emailID;
+        this.zipcode = zipcode;
+        this.userid = userid;
+        this.newUser = newUser;
+    }
+
 
     public String getemailID() {
         return emailID;
@@ -21,6 +31,10 @@ public class UserInfo {
 
     public long getuserid() {
         return userid;
+    }
+
+    public boolean getNewUser() {
+        return newUser;
     }
 
 }

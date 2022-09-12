@@ -156,14 +156,42 @@ public class BooksController {
                         + lBookForSale + ")");
             }
 
+
             MatchWantsAndHaves matcher = new MatchWantsAndHaves(userid);
             List<UserISBNTuple> matchingTups = matcher.DoMatchingForMyWants();
 
-            String returnNeedMatch = "";
+            MatchWantsAndHaves matcher2 = new MatchWantsAndHaves(userid);
+            List<UserISBNTuple> matchingTups2 = matcher2.DoMatchingForMyHaves();
+
+
+            String returnNeedMatch = "</b> Here are the matches for books you require: </b><br>" ;
             for (UserISBNTuple t : matchingTups) {
-                returnNeedMatch+= t.getisbn() + ":" + t.getEmailid() + "\n";
+                returnNeedMatch+= t.getisbn() + ":" + t.getEmailid() + "<br>";
             }
-            return returnNeedMatch;
+
+            String returnHaveMatch = "</b> Here are the matches for books you have: </b><br>";
+            for (UserISBNTuple t : matchingTups2) {
+                returnHaveMatch+= t.getisbn() + ":" + t.getEmailid() + "<br>";
+           }
+            String matches = returnNeedMatch + returnHaveMatch;
+            return matches;
+
+            // MatchWantsAndHaves matcher = new MatchWantsAndHaves(userid);
+            // List<UserISBNTuple> matchingTups = matcher.DoMatchingForMyWants();
+            // MatchWantsAndHaves matcher2 = new MatchWantsAndHaves(userid);
+            // List<UserISBNTuple> matchingTups2 = matcher2.DoMatchingForMyHaves();
+
+            // String returnNeedMatch = "";
+            // String returnHaveMatch = ""; 
+            // for (UserISBNTuple t : matchingTups) {
+            //     returnNeedMatch+= t.getisbn() + ":" + t.getEmailid() + "\n";
+            // }
+            // return returnNeedMatch;
+
+            // for (UserISBNTuple t : matchingTups2) {
+            //     returnHaveMatch+= t.getisbn() + ":" + t.getEmailid() + "\n";
+            // }
+            // return returnHaveMatch;
             // String booksAvailable = ALToString(booksWantedISBNs);
             // String booksForSale = ALToString(booksForSaleISBNs);
 

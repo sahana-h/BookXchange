@@ -1,0 +1,4 @@
+SELECT `user_info`.`userid`,
+    `user_info`.`emailid`,
+    `user_info`.`zipcode`
+FROM `book_xchange`.`user_info`;

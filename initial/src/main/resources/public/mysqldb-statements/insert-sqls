@@ -1,0 +1,8 @@
+INSERT INTO `book_xchange`.`user_info`
+(`userid`,
+`emailid`,
+`zipcode`)
+VALUES
+(<{userid: }>,
+<{emailid: }>,
+<{zipcode: }>);

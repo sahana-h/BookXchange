@@ -11,8 +11,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>replit</title>
+  <title>BookXChange</title>
   <link href="style.css" rel="stylesheet" type="text/css" />
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="userInfo.js"></script>
 </head>
 
 <body>
@@ -22,15 +26,24 @@
 
   Hello there ! Please provide the following information<br><br>
 
-  <form>
+  <form id="userinfoform">
     <label for="email">Enter your email:</label>
     <input type="email" id="email" name="email"><br><br>
     <label for="zip">ZIP Code</label>
     <input type="text" id="zip" pattern="[0-9]{5}" title="Five digit zip code" /><br> <br>
     <input type="submit" value="Submit">
   </form>
-  
-  <script src="script.js"></script>
+
+
+    <body>
+        <label id="resultEmail"></label>
+        <label id="resultZipCode"></label>
+        <div>
+            <p class="emailID">The emailID is </p>
+            <p class="zipcode">The zipcode is </p>
+        </div>
+    </body>
+
 
  <!--
   This script places a badge on your repl's full-browser view back to your repl's cover

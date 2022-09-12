@@ -51,7 +51,9 @@ public class MatchWantsAndHaves {
                     "select * from books_available where active= 1");
             while (result.next()) {
                 Long isbn = result.getLong("userid");
-                userIds.add(isbn);
+                if (isbns.contains(isbn)) {
+                    userIds.add(isbn);
+                }
             }
         } catch (SQLException e) {
             System.out.println(e);

@@ -21,7 +21,7 @@ $(document).ready(function() {
 
         $.get('/user?emailID=' + emailId, function(data, status) {
             $("#resultEmail").html(data.emailID);
-            $("#resultZipCode").html(data.zipcode);
+            $("#resultZip").html(data.zipcode);
         });
 });
 

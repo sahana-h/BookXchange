@@ -9,39 +9,69 @@
 <html>
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>BookXChange</title>
-  <link href="style.css" rel="stylesheet" type="text/css" />
-
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-  <script src="userInfo.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>BookXChange</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="userInfo.js"></script>
 </head>
 
 <body>
-
+    <!-- topnav is the style class for the top nav bars -->
+  <div class="topnav"> 
+    <a class="active" href="index.html">home</a>
+    <a href="explore.html">explore books</a>
+    <a href="transactions.html">transactions</a>
+    <a href="profile.html">my profile</a>
+  </div> 
+  
+  <div class="hero-image">
+  <div class="hero-text">
     <h1>BookXChange</h1>
+    <p>Education everywhere</p>
+    <button>Try it out</button>
+  </div>
+</div>
 
+  <h1 class="center">Our Mission</h1>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</p>
+  <h1 class="center">How to use BookXChange</h1>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</p>
 
-  Hello there ! Please provide the following information<br><br>
+  
+  <img src="images/BookXChangelogo.png" alt="logo" class="center">
+  <br>
+  <br>
 
-  <form id="userinfoform">
+  <h1 class="center">Hello there! Please provide the following information</h1>
+
+  <!-- <form id="userinfoform">
     <label for="email">Enter your email:</label>
     <input type="email" id="email" name="email"><br><br>
     <label for="zip">ZIP Code</label>
     <input type="text" id="zip" pattern="[0-9]{5}" title="Five digit zip code" /><br> <br>
     <input type="submit" value="Submit">
+  </form> -->
+
+  <form id="userinfoform">
+    <label for="email" class="center">Enter your email:</label>
+    <input type="email" id="email" name="email" class="center"><br><br>
+    <label for="zip" class="center">ZIP Code</label>
+    <input type="text" id="zip" pattern="[0-9]{5}" title="Five digit zip code" / class="center"><br> <br>
+    <input type="submit" value="Submit" class="center">
   </form>
 
 
     <body>
-        <label id="resultEmail"></label>
-        <label id="resultZipCode"></label>
-        <div>
+        <label id="resultEmail" class="center"></label>
+        <label id="resultZip" class="center"></label>
+        <!-- <div>
             <p class="emailID">The emailID is </p>
             <p class="zipcode">The zipcode is </p>
-        </div>
+        </div> -->
     </body>
 
 

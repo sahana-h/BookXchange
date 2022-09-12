@@ -13,12 +13,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class UserInfoController {
 
-	private static final String template = "Hello, %s!";
 
 	@CrossOrigin(origins = "http://localhost:8080")
 	@GetMapping("/user")
-	public UserInfo getUser(@RequestParam String emailID) {
+	public UserInfo getUser(@RequestParam String emailID, @RequestParam Long zipCode) {
 		System.out.println("emailID= " + emailID);
+        System.out.println("zipCode= " + zipCode);
         Connection connection = Application.getConnection();
 		Statement stmt;
 		try {
@@ -28,12 +28,25 @@ public class UserInfoController {
                 String localEmail = result.getString("emailid"); 
                 if (localEmail.equalsIgnoreCase(emailID)) {
                     Long localZIP = result.getLong("zipcode"); 
+                    Long userID = result.getLong("userid");
                    // String userID = result.getString("userid"); 
-                    System.out.println("found email" + emailID);
-                    return new UserInfo (emailID, localZIP); 
+                    System.out.println("Profile exists for user with email:" + emailID + ", zipCode=" + localZIP);
+                    return new UserInfo (emailID, localZIP, userID); 
                 }
 			}
-            System.out.println("did not find email" + emailID);
+
+            //creating a userid/profile
+            stmt.executeUpdate("insert into book_xchange.user_info(emailid, zipcode) values (\"" + emailID + "\","+ zipCode + ")");
+
+            Statement queryStmt = connection.createStatement();
+
+            // Retrieve the new userId
+            ResultSet resultQuery = queryStmt.executeQuery("select userid from user_info where emailid=\"" + emailID + "\"");
+            while (resultQuery != null && resultQuery.next()) {
+                Long newUserID = resultQuery.getLong("userid"); 
+                return new UserInfo (emailID, zipCode, newUserID);
+            }
+
 		} catch (SQLException e) {
             System.out.println("SQLException");
 		}

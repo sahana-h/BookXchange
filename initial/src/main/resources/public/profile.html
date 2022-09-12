@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width">
   <title>BookXChange</title>
   <link href="style.css" rel="stylesheet" type="text/css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="updateBooks.js"></script>
 </head>
 
 <body>
@@ -19,6 +21,22 @@
 
   <input type="text" placeholder="Search.." name="search">
   <button type="submit"><i class="fa fa-search"></i></button>
+
+
+  <div id="second">
+    <h1 class="center">Welcome to BookXChange, enter/update ISBN for books (comma separated)</h1>
+    <form id="booksinputform">
+      <label id="userid" class="center"></label>
+      <label for="books wanted" class="center">ISBN of Books Wanted:</label>
+      <input type="books wanted" id="booksWanted" name="books wanted" class="center"><br><br>
+      <label for="for sale" class="center">ISBN of Books for Sale:</label>
+      <input type="for sale" id="booksForSale" name="for sale" class="center"><br><br>
+      <input type="submit" value="Update Books" class="center">
+    </form>
+  </div>
+
+
+
   
   <script src="script.js" ></script>
 

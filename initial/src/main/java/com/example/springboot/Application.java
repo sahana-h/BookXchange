@@ -40,6 +40,7 @@ public class Application {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
 				registry.addMapping("/user").allowedOrigins("http://localhost:8080");
+				registry.addMapping("/books").allowedOrigins("http://localhost:8080");
 			}
 		};
 	}

@@ -31,7 +31,7 @@ public class UserInfoController {
                     Long userID = result.getLong("userid");
                    // String userID = result.getString("userid"); 
                     System.out.println("Profile exists for user with email:" + emailID + ", zipCode=" + localZIP);
-                    return new UserInfo (emailID, localZIP, userID); 
+                    return new UserInfo (emailID, localZIP, userID); // Existing user
                 }
 			}
 
@@ -44,7 +44,7 @@ public class UserInfoController {
             ResultSet resultQuery = queryStmt.executeQuery("select userid from user_info where emailid=\"" + emailID + "\"");
             while (resultQuery != null && resultQuery.next()) {
                 Long newUserID = resultQuery.getLong("userid"); 
-                return new UserInfo (emailID, zipCode, newUserID);
+                return new UserInfo (emailID, zipCode, newUserID, true); // new User
             }
 
 		} catch (SQLException e) {

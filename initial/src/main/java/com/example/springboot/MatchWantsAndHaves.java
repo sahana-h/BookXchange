@@ -11,30 +11,30 @@ import java.util.Set;
 
 // Matches a users wants to other users have.
 public class MatchWantsAndHaves {
-    private int userid;
+    private long userid;
 
-    public MatchWantsAndHaves(int userid) {
+    public MatchWantsAndHaves(long userid) {
         this.userid = userid;
     }
 
     public void DoMatching() {
         // Connect to Database
-        Set<Integer> usersWant = getUsersWant();
-        List<Integer> userIds = getUsersWhoHaveBooks(usersWant);
-        for (Integer id : userIds) {
-            System.out.println(id);
+        Set<Long> usersWant = getUsersWant();
+        List<Long> userIds = getUsersWhoHaveBooks(usersWant);
+        for (Long id : userIds) {
+            System.out.println("UserId:" + id + " has the book I need");
         }
     }
 
-    private Set<Integer> getUsersWant() {
+    private Set<Long> getUsersWant() {
         Connection connection = Application.getConnection();
-        Set<Integer> wantIsbns = new HashSet<Integer>();
+        Set<Long> wantIsbns = new HashSet<Long>();
         try {
             Statement stmt = connection.createStatement();
             ResultSet result = stmt.executeQuery(
                     "select * from books_needed where userid=" + userid + " AND active= 1");
             while (result.next()) {
-                wantIsbns.add(result.getInt("isbn"));
+                wantIsbns.add(result.getLong("isbn"));
             }
         } catch (SQLException e) {
             System.out.println(e);
@@ -42,15 +42,15 @@ public class MatchWantsAndHaves {
         return wantIsbns;
     }
 
-    private List<Integer> getUsersWhoHaveBooks(Set<Integer> isbns) {
+    private List<Long> getUsersWhoHaveBooks(Set<Long> isbns) {
         Connection connection = Application.getConnection();
-        List<Integer> userIds = new ArrayList<>();
+        List<Long> userIds = new ArrayList<>();
         try {
             Statement stmt = connection.createStatement();
             ResultSet result = stmt.executeQuery(
                     "select * from books_available where active= 1");
             while (result.next()) {
-                Integer isbn = result.getInt("userid");
+                Long isbn = result.getLong("userid");
                 userIds.add(isbn);
             }
         } catch (SQLException e) {

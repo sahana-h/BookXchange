@@ -17,9 +17,12 @@ $(document).ready(function() {
        
         e.preventDefault();
         var emailId = $("#email").val();
-        alert("Received email Id " + emailId);
+        var zipCode = $("#zip").val();
 
-        $.get('/user?emailID=' + emailId, function(data, status) {
+        alert("Received email Id " + emailId);
+        alert("Received zipCode " + zipCode);
+
+        $.get('/user?emailID=' + emailId + "&zipCode=" + zipCode, function(data, status) {
             $("#resultEmail").html(data.emailID);
             $("#resultZip").html(data.zipcode);
         });

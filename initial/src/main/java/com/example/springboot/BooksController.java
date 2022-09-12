@@ -37,24 +37,24 @@ public class BooksController {
         return booksAvailableISBNs;
     }
 
-    private ArrayList<Long> retrieveBooksForSale(Long userid) {
+    private ArrayList<Long> retrieveBooksNeeded(Long userid) {
         Connection connection = Application.getConnection();
 		Statement stmt;
 
-        ArrayList<Long> booksForSaleISBNs = new ArrayList<Long>();
+        ArrayList<Long> booksNeededISBNs = new ArrayList<Long>();
 
         try {
 			stmt = connection.createStatement();
 			ResultSet result = stmt.executeQuery("select * from books_needed where userid=\"" + userid + "\" and active=1");
 			while (result != null && result.next()) {
                 Long isbn = result.getLong("isbn");
-                booksForSaleISBNs.add(isbn);
+                booksNeededISBNs.add(isbn);
 			}
             
 		} catch (SQLException e) {
             System.out.println("SQLException");
 		}
-        return booksForSaleISBNs;
+        return booksNeededISBNs;
     }
 
     private ArrayList<Long> stringToArrayList(String isbns) {
@@ -80,6 +80,51 @@ public class BooksController {
         }
         return result;
     }
+
+
+    // private void match(Long userid) {
+
+    //     ArrayList<Long> booksNeeded = retrieveBooksNeeded(userid);
+
+    //     // Find user's zipcode
+    //     long zipCode = findZip(userid);
+    //     // Find neighbors other than me
+    //     ArrayList<Long> neighborUserids = getNeighbors(userid, zipCode);
+
+    //     // See if any neighbors have what I need
+    //     for (Long neighbor: neighborUserids) {
+    //         ArrayList<Long> neighborHaveBooks = retrieveBooksAvailable(neighbor);
+
+    //         for (Long bookNeeded : booksNeeded) {
+    //             if (neighborHaveBooks.contains(bookNeeded)) {
+    //                 // hey hey match found
+    //             }
+    //         }
+
+
+    //     }
+
+
+
+    //     Connection connection = Application.getConnection();
+	// 	Statement stmt;
+
+    //     ArrayList<Long> booksForSaleISBNs = new ArrayList<Long>();
+
+    //     try {
+	// 		stmt = connection.createStatement();
+	// 		ResultSet result = stmt.executeQuery("select * from books_needed where userid=\"" + userid + "\" and active=1");
+	// 		while (result != null && result.next()) {
+    //             Long isbn = result.getLong("isbn");
+    //             booksForSaleISBNs.add(isbn);
+	// 		}
+            
+	// 	} catch (SQLException e) {
+    //         System.out.println("SQLException");
+	// 	}
+    //     return booksForSaleISBNs;
+
+    // }
      
 
     @CrossOrigin(origins = "http://localhost:8080")

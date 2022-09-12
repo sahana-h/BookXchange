@@ -30,9 +30,13 @@ $(document).ready(function() {
         $("#userid").html(userid);
 
         $.get('/books?userid=' + userid + '&bwisbns=' + booksWanted
-        + '&bnisbns=' + booksForSale,
+        + '&bhisbns=' + booksForSale,
         function(data, status) {
+
+
             alert("Updated your books needs and haves. We will share any match for book exchange soon");
+            alert(data);
+            $("#matchesString").html(data);
         });
 });
 

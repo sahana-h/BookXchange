@@ -127,18 +127,18 @@ public class BooksController {
 
     // }
 
-    private void match(Long userid) {
+    // private void match(Long userid) {
 
-    }
+    // }
 
     @CrossOrigin(origins = "http://localhost:8080")
     @GetMapping("/books")
-    public BookInfo retrieveBooks(@RequestParam Long userid,
+    public String retrieveBooks(@RequestParam Long userid,
             @RequestParam String bwisbns,
-            @RequestParam String bnisbns) {
+            @RequestParam String bhisbns) {
 
         ArrayList<Long> booksWantedISBNs = stringToArrayList(bwisbns);
-        ArrayList<Long> booksForSaleISBNs = stringToArrayList(bnisbns);
+        ArrayList<Long> booksForSaleISBNs = stringToArrayList(bhisbns);
 
         Connection connection = Application.getConnection();
         Statement stmt;
@@ -146,7 +146,7 @@ public class BooksController {
 
             for (Long lBookWanted : booksWantedISBNs) {
                 stmt = connection.createStatement();
-                stmt.executeUpdate("insert into book_xchange.books_available(userid, isbn) values (\"" + userid + "\","
+                stmt.executeUpdate("insert into book_xchange.books_needed(userid, isbn) values (\"" + userid + "\","
                         + lBookWanted + ")");
             }
 
@@ -157,12 +157,18 @@ public class BooksController {
             }
 
             MatchWantsAndHaves matcher = new MatchWantsAndHaves(userid);
-            matcher.DoMatching();
-            String booksAvailable = ALToString(booksWantedISBNs);
-            String booksForSale = ALToString(booksForSaleISBNs);
+            List<UserISBNTuple> matchingTups = matcher.DoMatchingForMyWants();
 
-            BookInfo bookInfo = new BookInfo(booksAvailable, booksForSale, userid);
-            return bookInfo;
+            String returnNeedMatch = "";
+            for (UserISBNTuple t : matchingTups) {
+                returnNeedMatch+= t.getisbn() + ":" + t.getEmailid() + "\n";
+            }
+            return returnNeedMatch;
+            // String booksAvailable = ALToString(booksWantedISBNs);
+            // String booksForSale = ALToString(booksForSaleISBNs);
+
+            // BookInfo bookInfo = new BookInfo(booksAvailable, booksForSale, userid);
+            // return bookInfo;
 
         } catch (SQLException e) {
             System.out.println("SQLException");

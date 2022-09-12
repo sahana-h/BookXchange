@@ -98,6 +98,8 @@ input {
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
+  font-size: 170%;
+  
 }
 
 .button {
@@ -117,16 +119,16 @@ input {
 
 #wrapper {
     width: 900px;
-    border: 1px solid black;
+    border: 1px solid dedede;
     overflow: hidden; 
 }
 #first {
     width: 450px;
     float:left; 
-    border: 1px solid black;
+    border: 1px solid dedede;
 }
 #second {
-    border: 1px solid black;
+    border: 1px solid dedede;
     overflow: hidden; 
 }
 

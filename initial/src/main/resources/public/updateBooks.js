@@ -23,22 +23,16 @@ $(document).ready(function() {
         var booksWanted = $("#booksWanted").val();
         var booksForSale = $("#booksForSale").val();
 
-        alert ("User ID is " + userid);
-        alert ("booksWanted is " + booksWanted);
-        alert ("booksForSale is " + booksForSale);
+        // alert ("User ID is " + userid);
+        // alert ("booksWanted is " + booksWanted);
+        // alert ("booksForSale is " + booksForSale);
 
         $("#userid").html(userid);
-
-        alert("here 1");
-
-        var test = '/books?userid=' + userid + '&bwisbns=' + booksWanted
-        + '&bnisbns=' + booksForSale;
-        alert(test);
 
         $.get('/books?userid=' + userid + '&bwisbns=' + booksWanted
         + '&bnisbns=' + booksForSale,
         function(data, status) {
-            alert("done");
+            alert("Updated your books needs and haves. We will share any match for book exchange soon");
         });
 });
 

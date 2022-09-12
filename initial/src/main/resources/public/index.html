@@ -19,12 +19,15 @@
 
 <body>
     <!-- topnav is the style class for the top nav bars -->
-  <div class="topnav"> 
-    <a class="active" href="index.html">home</a>
-    <a href="explore.html">explore books</a>
-    <a href="transactions.html">transactions</a>
-    <a href="profile.html">my profile</a>
-  </div> 
+    <div class="topnav center"> 
+        <a href="/index.html"><img src="images/BookXChangelogo.png" alt="logo" width = "200"></a>
+        <div class="topnav-right">
+        <a class="active" href="index.html">home</a>
+        <a href="explore.html">explore books</a>
+        <a href="transactions.html">transactions</a>
+        <a href="profile.html">my profile</a>
+        </div>
+    </div> 
   
   <div class="hero-image">
   <div class="hero-text">
@@ -56,13 +59,27 @@
     <input type="submit" value="Submit">
   </form> -->
 
-  <form id="userinfoform">
-    <label for="email" class="center">Enter your email:</label>
-    <input type="email" id="email" name="email" class="center"><br><br>
-    <label for="zip" class="center">ZIP Code</label>
-    <input type="text" id="zip" pattern="[0-9]{5}" title="Five digit zip code" / class="center"><br> <br>
-    <input type="submit" value="Submit" class="center">
-  </form>
+  <div id="wrapper" class = "center">
+    <div id="first">
+  <h1 class = "center">Hello there! Please provide the following information</h1>
+    <form id="userinfoform">
+        <label for="email" class="center">Enter your email</label>
+        <input type="email" id="email" name="email" class="center"><br><br>
+        <label for="zip" class="center">ZIP Code</label>
+        <input type="text" id="zip" pattern="[0-9]{5}" title="Five digit zip code" / class="center"><br> <br>
+        <input type="submit" value="Submit" class="center">
+    </form><br><br><br>
+    </div>
+
+  <div id="second">
+    <h1 class="center">Log In</h1><br><br><br><br>
+    <form id="loginform">
+        <label for="userid" class="center">User ID</label>
+        <input type="userid" id="userid" name="userid" class="center"><br><br>
+        <br>
+        <input type="Log In" value="LogIn" class="center">
+    </form><br>
+  </div>
 
 
     <body>

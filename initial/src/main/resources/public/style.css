@@ -19,14 +19,19 @@ h1 {
   font-size: 100%;
 }
 
+h2 {
+  font-family: Verdana;
+  font-size: 100%;
+}
+
 label {
   font-family: Verdana;
   font-size: 80%;
 }
 
 input {
-  background-color: #666666;
-  color: white;
+  background-color: #ffffff;
+  color: black;
 }
 
 #bannerimage {
@@ -72,6 +77,10 @@ input {
   font-size: 15px;
 }
 
+.topnav-right {
+  float: right;
+}
+
 .hero-image {
   background-image: url("images/banner.jpg");
   height: 50%;
@@ -100,4 +109,45 @@ input {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+}
+
+input {
+  height: 40px;
+}
+
+#wrapper {
+    width: 900px;
+    border: 1px solid black;
+    overflow: hidden; 
+}
+#first {
+    width: 450px;
+    float:left; 
+    border: 1px solid black;
+}
+#second {
+    border: 1px solid black;
+    overflow: hidden; 
+}
+
+input1 {
+  
+  background-color: #86c86a;
+ 
+}
+
+button1 {
+  height: 40px;
+  border: 2px solid black;
+  color: black;
+  background-color: #86c86a;
+  font-size: 16px;
+  border-radius: 50px;
+  width: 100px;
+}
+
+table {
+  border: 1px solid black;
+  background-color: #ffffff;
+  width: 450px;
 }

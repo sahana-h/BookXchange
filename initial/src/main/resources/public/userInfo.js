@@ -25,6 +25,20 @@ $(document).ready(function() {
         $.get('/user?emailID=' + emailId + "&zipCode=" + zipCode, function(data, status) {
             $("#resultEmail").html(data.emailID);
             $("#resultZip").html(data.zipcode);
+
+            if (data.newUser == true) {
+                alert("new user");
+            } else {
+                alert("existing user");
+            }
+
+            // $("#resultEmail").html(data.emailID);
+            // $("#resultZip").html(data.zipcode);
+
+            var userid = data.userid;
+
+            // redirect to profile page
+            $(location).attr('href', "/profile.html?userid=" + userid);
         });
 });
 
